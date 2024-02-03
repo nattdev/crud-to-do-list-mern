@@ -13,14 +13,18 @@ export default function Tasks() {
         loadTasks();
     }, []);
 
+    const renderMain = () => {
+        if (tasks.length === 0) {
+            return <h2>No Tasks Found</h2>
+        } else {
+            return tasks.map((task) => <TaskCard task={task} key={task.id} />)
+        }
+    }
+
     return (
         <>
             <h2>Obteniendo Tareas</h2>
-            {
-                tasks.map((task) => (
-                   <TaskCard task={task} key={task.id}/>
-                ))
-            }
+            {renderMain()}
         </>
     );
 }
