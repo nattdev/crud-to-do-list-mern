@@ -4,8 +4,9 @@ import './styles/index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './routes/Root.jsx';
 import ErrorPage from './error-page.jsx';
-import TaskForm from './routes/TaskForm.jsx';
-import Tasks from './routes/Tasks.jsx';
+import HomePage from './pages/HomePage.jsx';
+import TaskForm from './components/TaskForm.jsx';
+import Tasks from './components/Tasks.jsx';
 import { TaskContextProvider } from './components/TaskContext.jsx';
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <HomePage /> },
       {
         path: "/new",
         element: <TaskForm />,
