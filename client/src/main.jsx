@@ -6,6 +6,7 @@ import Root from './routes/Root.jsx';
 import ErrorPage from './error-page.jsx';
 import TaskForm from './routes/TaskForm.jsx';
 import Tasks from './routes/Tasks.jsx';
+import { TaskContextProvider } from './components/TaskContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,14 +22,19 @@ const router = createBrowserRouter([
         path: "/tasks",
         element: <Tasks />,
       },
+      {
+        path: "/edit/:id",
+        element: <TaskForm />,
+      },
     ],
   },
-
 ]);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <TaskContextProvider>
+      <RouterProvider router={router} />
+    </TaskContextProvider>
   </React.StrictMode>,
 )
