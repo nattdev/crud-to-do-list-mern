@@ -1,14 +1,14 @@
-import { deleteTaskRequest } from "../api/tasks.api";
+import { useNavigate } from "react-router-dom";
+import { useTasks } from "./TaskContext";
+
 
 function TaskCard({ task }) {
 
-    const handleDelete = async (id) => {
-        try {
-            const response = await deleteTaskRequest(id);
-            console.log(response);
-        } catch (error) {
-            console.error(error);
-        }
+    const {deleteTask, toggleDone} = useTasks();
+    const navigate = useNavigate();
+
+    const handleToggleTask = async(id, done) => {
+        await toggleDone(id, done == 0 ? {done : true} : {done : false});
     }
 
     return (
@@ -17,8 +17,9 @@ function TaskCard({ task }) {
             <p>{task.description}</p>
             <span>{task.done == 1 ? "✅" : "❌"}</span>
             <p>{task.dateCreate}</p>
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
-            <button>Edit</button>
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button onClick={() => navigate(`/edit/${task.id}`)}>Edit</button>
+            <button onClick={() => handleToggleTask(task.id, task.done)}>Toggle Task</button>
         </div>
     )
 }
