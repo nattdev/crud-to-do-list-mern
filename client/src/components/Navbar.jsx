@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
     return (
         <div id="navbar" className="flex justify-center flex-col items-center w-screen">
-            <h1 className="text-4xl p-4">CRUD To Do List</h1>
+            <h1 className="text-4xl p-4 text-center">CRUD To Do List</h1>
             <nav>
                 <ul className="flex p-2 gap-4">
                     <li>

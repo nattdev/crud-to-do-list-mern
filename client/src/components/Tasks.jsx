@@ -19,8 +19,8 @@ export default function Tasks() {
     }
 
     return (
-        <div className="flex flex-col-reverse border-slate-400 border-2 mt-5 p-4 rounded-xl w-1/2 m-auto">
-            <h2 className="text-2xl font-semibold py-4 order-1">Your Tasks</h2>
+        <div className="flex flex-col-reverse mt-5 p-4 border-2 border-slate-400 rounded-xl m-auto w-11/12 sm:w-1/2 sm:p-4">
+            <h2 className="text-2xl text-center font-semibold py-4 order-1">Your Tasks</h2>
             {renderMain()}
         </div>
     );
