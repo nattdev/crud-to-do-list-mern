@@ -5,15 +5,15 @@ export default function Navbar() {
         <div id="navbar" className="flex justify-center flex-col items-center w-screen">
             <h1 className="text-4xl p-4 text-center">CRUD To Do List</h1>
             <nav>
-                <ul className="flex p-2 gap-4">
+                <ul className="flex p-2 gap-3">
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/" className="border-2 p-2 rounded-md">Home</Link>
                     </li>
                     <li>
-                        <Link to="/new" className="bg-red-300 p-2 rounded-xl">Create Task</Link>
+                        <Link to="/new" className="border-2 p-2 rounded-md">Create Task</Link>
                     </li>
                     <li>
-                        <Link to="/tasks">Tasks</Link>
+                        <Link to="/tasks" className="border-2 p-2 rounded-md">Tasks</Link>
                     </li>
                 </ul>
             </nav>
